@@ -23,7 +23,7 @@ spec:
         discoverable: false
   containers:
    - name: cdd
-     image: "docker.io/eclipse/che-theia:7.0.0-next"
+     image: "docker.io/wernight/codiad"
      volumes:
          - mountPath: "/plugins"
            name: plugins
