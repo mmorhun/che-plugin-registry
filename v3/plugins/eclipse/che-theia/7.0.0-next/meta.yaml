@@ -12,7 +12,7 @@ repository: https://github.com/eclipse/che-theia
 firstPublicationDate: "2019-03-07"
 spec:
   endpoints:
-   -  name: "cdd"
+   -  name: cddep
       public: true
       targetPort: 80
       attributes:
