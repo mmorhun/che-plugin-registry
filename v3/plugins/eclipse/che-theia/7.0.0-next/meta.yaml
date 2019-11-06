@@ -1,10 +1,10 @@
 apiVersion: v2
 publisher: eclipse
-name: cdd
+name: che-theia
 version: 7.0.0-next
 type: Che Editor
 displayName: cdd
-title: Eclipse Theia development version.
+title: Test new IDE.
 description: Test new IDE.
 icon: https://raw.githubusercontent.com/theia-ide/theia/master/logo/theia-logo-no-text-black.svg?sanitize=true
 category: Editor
