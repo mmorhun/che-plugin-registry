@@ -25,7 +25,7 @@ spec:
    - name: cdd
      image: "docker.io/wernight/codiad"
      volumes:
-         - mountPath: "/plugins"
+         - mountPath: "/code"
            name: plugins
      mountSources: true
      ports:
