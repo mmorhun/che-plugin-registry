@@ -14,7 +14,7 @@ spec:
   endpoints:
    -  name: cddep
       public: true
-      targetPort: 80
+      targetPort: 8001
       attributes:
         protocol: http
         type: ide
@@ -29,5 +29,5 @@ spec:
            name: plugins
      mountSources: true
      ports:
-         - exposedPort: 80        
+         - exposedPort: 8001      
      memoryLimit: "2048M"
