@@ -23,7 +23,7 @@ spec:
         discoverable: false
   containers:
    - name: cdd
-     image: "docker.io/wernight/codiad"
+     image: "docker.io/mm4eche/codiad"
      volumes:
          - mountPath: "/code"
            name: plugins
