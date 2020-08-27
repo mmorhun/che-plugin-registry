@@ -21,6 +21,16 @@ spec:
         secure: true
         cookiesAuthEnabled: true
         discoverable: false
+   -  name: "webviews"
+      public: true
+      targetPort: 3100
+      attributes:
+        protocol: http
+        type: webview
+        secure: true
+        cookiesAuthEnabled: true
+        discoverable: false
+        unique: true
    -  name: "theia-dev"
       public: true
       targetPort: 3130
@@ -48,7 +58,7 @@ spec:
         discoverable: false
   containers:
    - name: theia-ide
-     image: "docker.io/maxura/che-theia:531"
+     image: "vzhukovs/che-theia:17440"
      env:
          - name: THEIA_PLUGINS
            value: local-dir:///plugins
@@ -56,6 +66,8 @@ spec:
            value: 0.0.0.0
          - name: HOSTED_PLUGIN_PORT
            value: "3130"
+         - name: THEIA_HOST
+           value: 127.0.0.1
      volumes:
          - mountPath: "/plugins"
            name: plugins
@@ -67,3 +79,15 @@ spec:
          - exposedPort: 13132
          - exposedPort: 13133
      memoryLimit: "512M"
+  initContainers:
+  - name: remote-runtime-injector
+    image: "quay.io/eclipse/che-theia-endpoint-runtime-binary:next"
+    volumes:
+      - mountPath: "/remote-endpoint"
+        name: remote-endpoint
+        ephemeral: true
+    env:
+      - name: PLUGIN_REMOTE_ENDPOINT_EXECUTABLE
+        value: /remote-endpoint/plugin-remote-endpoint
+      - name: REMOTE_ENDPOINT_VOLUME_NAME
+        value: remote-endpoint
